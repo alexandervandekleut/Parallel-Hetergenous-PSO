@@ -63,11 +63,10 @@ class Swarm{ // a class that contains a collection of particles, a global best p
 
 				for (int i=0; i<position.size(); i++){ // for each dimension in the particles position and velocity vectors
 
-					double oldPosition = position[i]; // hold on the the old position temporarily
-					position[i] += inertia*velocity[i]; // decay the previous velocity and add it to the current position
-					position[i] += random1[i]*(bestPosition[i] - position[i]); // take a radom amount of the vector pointing from the particles current position to its best position
-					position[i] += random2[i]*(globalBestPosition[i] - position[i]); // take a radom amount of the vector pointing from the particles current position to the swarm's global best position
-					velocity[i] = position[i] - oldPosition; // update the velocity
+					velocity[i] *= inertia; // scale the previous velocity by the inertia
+					velocity[i] += cognitive*random1[i]*(bestPosition[i] - position[i]); // take a random amount of the vector pointing from current position to personal best position and scale it by cognitive factor
+					velocity[i] += social*random2[i]*(globalBestPosition[i] - position[i]);// take a random amount of the vector pointing from current position to global best position and scale it by social factor
+					position[i] += velocity[i]; // update position using velocity vector
 				}
 
 				double loss = rastrigin(position); // calculate the new loss of the particle
