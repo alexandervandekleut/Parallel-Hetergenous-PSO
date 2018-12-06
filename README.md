@@ -5,7 +5,9 @@ Particle Swarm Optimizer (PSO) with 4 parameter modification behaviours implemen
 Compiling can be different on different systems. Any of the following may work:
 
 ```mpicc -lc++ -o <output name> PSO.cpp```
+
 ```mpicc -std=c++11 -o <output name> PSO.cpp```
+
 ```mpiCC -o <output name> PSO.cpp```
   
 ###Running
