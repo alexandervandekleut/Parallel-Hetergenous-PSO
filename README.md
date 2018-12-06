@@ -1,7 +1,7 @@
 # Parallel-Hetergenous-PSO
 Particle Swarm Optimizer (PSO) with 4 parameter modification behaviours implemented in C++. Uses OpenMPI for parallelization.
 
-###Compiling
+### Compiling
 Compiling can be different on different systems. Any of the following may work:
 
 ```mpicc -lc++ -o <output name> PSO.cpp```
@@ -10,7 +10,7 @@ Compiling can be different on different systems. Any of the following may work:
 
 ```mpiCC -o <output name> PSO.cpp```
   
-###Running
+### Running
 Running is simple.
 
 ```mpiexec -n <number of processes> <output name> <number of swarms per process>```
